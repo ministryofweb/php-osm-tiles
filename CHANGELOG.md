@@ -1,0 +1,18 @@
+# Change Log
+
+All notable changes to `ministryofweb/php-osm-tiles` will be documented in this
+file. This project adheres to [Semantic Versioning](https://semver.org/).
+Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/)
+principles.
+
+## [x.y.z] - (not released yet)
+
+### Fixed
+
+- typo in README
+
+## [0.1.0] - 2018-01-30
+
+### Added
+
+- initial release

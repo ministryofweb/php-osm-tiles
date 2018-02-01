@@ -40,7 +40,7 @@ The code above produces the output below:
 /tiles/13/4400/2687.png
 ```
 
-## Convert from map tile numbers to geogrpahical coordinates
+## Convert from map tile numbers to geographical coordinates
 
 ```php
 <?php
