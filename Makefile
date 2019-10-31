@@ -5,6 +5,8 @@ PHPSTAN_LEVEL=max
 .PHONY: composer-validate
 .PHONY: lint
 .PHONY: static-analysis
+.PHONY: phpstan
+.PHONY: psalm
 .PHONY: test
 .PHONY: php-cs-fixer
 
@@ -13,8 +15,13 @@ ci: composer-validate lint static-analysis sniff coding-standards test
 lint:
 	./vendor/bin/parallel-lint src
 
-static-analysis:
+static-analysis: phpstan psalm
+
+phpstan:
 	./vendor/bin/phpstan analyse --level=$(PHPSTAN_LEVEL) src
+
+psalm:
+	./vendor/bin/psalm
 
 sniff:
 	./vendor/bin/phpcs --standard=codesniffer_rules.xml src
