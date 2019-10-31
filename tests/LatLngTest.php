@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Tests\MinistryOfWeb\OsmTiles;
 
@@ -7,17 +8,17 @@ use PHPUnit\Framework\TestCase;
 
 class LatLngTest extends TestCase
 {
-    public function testIfGetLatWorksAsExpected()
+    public function testIfGetLatWorksAsExpected(): void
     {
         $latLng = new LatLng(52.5, 13.5);
 
-        $this->assertEquals(52.5, $latLng->getLat());
+        self::assertSame(52.5, $latLng->getLat());
     }
 
-    public function testIfGetYWorksAsExpected()
+    public function testIfGetYWorksAsExpected(): void
     {
         $latLng = new LatLng(52.5, 13.5);
 
-        $this->assertEquals(13.5, $latLng->getLng());
+        self::assertSame(13.5, $latLng->getLng());
     }
 }

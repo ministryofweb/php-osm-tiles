@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Tests\MinistryOfWeb\OsmTiles;
 
@@ -8,28 +9,28 @@ use PHPUnit\Framework\TestCase;
 
 class TileTest extends TestCase
 {
-    public function testIfGetXWorksAsExpected()
+    public function testIfGetXWorksAsExpected(): void
     {
         $tile = new Tile(32000, 31930, 15);
 
-        $this->assertEquals(32000, $tile->getX());
+        self::assertSame(32000, $tile->getX());
     }
 
-    public function testIfGetYWorksAsExpected()
+    public function testIfGetYWorksAsExpected(): void
     {
         $tile = new Tile(32000, 31930, 15);
 
-        $this->assertEquals(31930, $tile->getY());
+        self::assertSame(31930, $tile->getY());
     }
 
-    public function testIfGetZoomWorksAsExpected()
+    public function testIfGetZoomWorksAsExpected(): void
     {
         $tile = new Tile(32000, 31930, 15);
 
-        $this->assertEquals(15, $tile->getZoom());
+        self::assertSame(15, $tile->getZoom());
     }
 
-    public function testIfZeroZoomValueThrowsAnException()
+    public function testIfZeroZoomValueThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('zoom must be >= 1');
@@ -37,7 +38,7 @@ class TileTest extends TestCase
         new Tile(1, 1, 0);
     }
 
-    public function testIfNonIntegerZoomValueThrowsAnException()
+    public function testIfNonIntegerZoomValueThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('zoom must be an integer value');
@@ -45,7 +46,7 @@ class TileTest extends TestCase
         new Tile(1, 1, 4.5);
     }
 
-    public function testIfNegativeXThrowsAnException()
+    public function testIfNegativeXThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('x cannot be < 0');
@@ -53,7 +54,7 @@ class TileTest extends TestCase
         new Tile(-1, 1, 1);
     }
 
-    public function testIfNegativeYThrowsAnException()
+    public function testIfNegativeYThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('y cannot be < 0');
@@ -61,7 +62,7 @@ class TileTest extends TestCase
         new Tile(1, -1, 1);
     }
 
-    public function testIfTooLargeXThrowsAnException()
+    public function testIfTooLargeXThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('x cannot be > (2^zoom - 1)');
@@ -69,7 +70,7 @@ class TileTest extends TestCase
         new Tile(16, 1, 4);
     }
 
-    public function testIfTooLargeYThrowsAnException()
+    public function testIfTooLargeYThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('y cannot be > (2^zoom - 1)');

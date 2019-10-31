@@ -1,11 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MinistryOfWeb\OsmTiles;
 
 /**
- * Class LatLng
- *
- * @package MinistryOfWeb\OsmTiles
+ * Class LatLng.
  */
 class LatLng
 {
@@ -44,7 +44,7 @@ class LatLng
     /**
      * @return float
      */
-    public function getLat()
+    public function getLat(): float
     {
         return $this->lat;
     }
@@ -52,7 +52,7 @@ class LatLng
     /**
      * @return float
      */
-    public function getLng()
+    public function getLng(): float
     {
         return $this->lng;
     }

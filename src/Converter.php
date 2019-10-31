@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MinistryOfWeb\OsmTiles;
 
 /**
- * Class Converter
+ * Class Converter.
  *
- * @package MinistryOfWeb\OsmTiles
  * @see https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
  */
 class Converter
@@ -18,9 +19,9 @@ class Converter
      * @throws \InvalidArgumentException
      * @throws \RuntimeException
      */
-    public function toTile(LatLng $latLng, $zoom)
+    public function toTile(LatLng $latLng, $zoom): Tile
     {
-        if (! $this->isValidZoom($zoom)) {
+        if (!$this->isValidZoom($zoom)) {
             throw new \RuntimeException('Invalid Zoom level (must be integer > 0)');
         }
 
@@ -38,11 +39,11 @@ class Converter
      * @return LatLng
      * @throws \InvalidArgumentException
      */
-    public function toLatLng(Tile $tile)
+    public function toLatLng(Tile $tile): LatLng
     {
         $zPow = 2 ** $tile->getZoom();
-        $lat  = rad2deg(atan(sinh(M_PI * (1 - 2 * $tile->getY() / $zPow))));
-        $lng  = $tile->getX() / $zPow * 360.0 - 180.0;
+        $lat = rad2deg(atan(sinh(M_PI * (1 - 2 * $tile->getY() / $zPow))));
+        $lng = $tile->getX() / $zPow * 360.0 - 180.0;
 
         return new LatLng($lat, $lng);
     }
@@ -52,9 +53,9 @@ class Converter
      *
      * @return bool
      */
-    private function isValidZoom($zoom)
+    private function isValidZoom($zoom): bool
     {
-        if (! is_int($zoom)) {
+        if (!is_int($zoom)) {
             return false;
         }
 

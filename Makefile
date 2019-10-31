@@ -6,6 +6,7 @@ PHPSTAN_LEVEL=max
 .PHONY: lint
 .PHONY: static-analysis
 .PHONY: test
+.PHONY: php-cs-fixer
 
 ci: composer-validate lint static-analysis sniff coding-standards test
 
@@ -27,3 +28,5 @@ composer-validate:
 test:
 	./vendor/bin/phpunit
 
+php-cs-fixer:
+	./vendor/bin/php-cs-fixer fix

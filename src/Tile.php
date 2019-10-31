@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MinistryOfWeb\OsmTiles;
 
 use InvalidArgumentException;
 
 /**
- * Class Tile
+ * Class Tile.
  *
- * @package MinistryOfWeb\OsmTiles
  * @see https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
  */
 class Tile
@@ -38,7 +39,7 @@ class Tile
      */
     public function __construct($tileX, $tileY, $zoom)
     {
-        if (! is_int($zoom)) {
+        if (!is_int($zoom)) {
             throw new InvalidArgumentException('zoom must be an integer value');
         }
 
@@ -64,13 +65,13 @@ class Tile
 
         $this->tileX = $tileX;
         $this->tileY = $tileY;
-        $this->zoom  = $zoom;
+        $this->zoom = $zoom;
     }
 
     /**
      * @return int
      */
-    public function getX()
+    public function getX(): int
     {
         return $this->tileX;
     }
@@ -78,7 +79,7 @@ class Tile
     /**
      * @return int
      */
-    public function getY()
+    public function getY(): int
     {
         return $this->tileY;
     }
@@ -86,7 +87,7 @@ class Tile
     /**
      * @return int
      */
-    public function getZoom()
+    public function getZoom(): int
     {
         return $this->zoom;
     }
