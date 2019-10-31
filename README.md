@@ -1,6 +1,6 @@
 # PHP OSM Tiles
 
-This library helps converting OpenStreetMap (OSM) map tile numbers to 
+This library helps converting OpenStreetMap (OSM) map tile numbers to
 geographical coordinates and vice versa.
 
 ## Installation
@@ -13,7 +13,9 @@ composer require ministryofweb/php-osm-tiles
 
 ## Compatibility
 
-The PHP OSM Tiles library requires PHP >= 5.6.
+The PHP OSM Tiles library requires PHP >= 7.1.
+
+For older PHP version you can install the PHP OSM Tiles library at version 0.1.0.
 
 ## Usage/Examples
 
@@ -64,8 +66,20 @@ The code above produces the output below:
 
 ## Run Tests
 
-```shell
+``` shell script
+make test
+```
+
+or
+
+``` shell script
 ./vendor/bin/phpunit
+```
+
+## Run all CI tools
+
+``` shell script
+make ci
 ```
 
 ## OpenStreetMap Map Tile Names Documentation

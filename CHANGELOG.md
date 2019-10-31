@@ -5,7 +5,11 @@ file. This project adheres to [Semantic Versioning](https://semver.org/).
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/)
 principles.
 
-## [x.y.z] - (not released yet)
+## [1.0.0] - 2019-10-31
+
+### Changed
+
+- PHP 7.1 is the minimum required version now
 
 ### Fixed
 
