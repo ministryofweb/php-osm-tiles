@@ -24,7 +24,7 @@ psalm:
 	./vendor/bin/psalm
 
 sniff:
-	./vendor/bin/phpcs --standard=codesniffer_rules.xml src
+	./vendor/bin/phpcs --standard=phpcs.xml.dist src
 
 coding-standards: sniff
 	./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode

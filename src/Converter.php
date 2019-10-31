@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace MinistryOfWeb\OsmTiles;
 
+use InvalidArgumentException;
+use RuntimeException;
+
 /**
  * Class Converter.
  *
@@ -16,17 +19,16 @@ class Converter
      * @param int $zoom
      *
      * @return Tile
-     * @throws \InvalidArgumentException
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
-    public function toTile(LatLng $latLng, $zoom): Tile
+    public function toTile(LatLng $latLng, int $zoom): Tile
     {
         if (!$this->isValidZoom($zoom)) {
-            throw new \RuntimeException('Invalid Zoom level (must be integer > 0)');
+            throw new RuntimeException('Invalid Zoom level (must be an integer > 0)');
         }
 
-        $tileX = floor((($latLng->getLng() + 180) / 360) * (2 ** $zoom));
-        $tileY = floor(
+        $tileX = (int)floor((($latLng->getLng() + 180) / 360) * (2 ** $zoom));
+        $tileY = (int)floor(
             (1 - log(tan(deg2rad($latLng->getLat())) + 1 / cos(deg2rad($latLng->getLat()))) / M_PI) / 2 * (2 ** $zoom)
         );
 
@@ -37,7 +39,7 @@ class Converter
      * @param Tile $tile
      *
      * @return LatLng
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function toLatLng(Tile $tile): LatLng
     {
@@ -53,12 +55,8 @@ class Converter
      *
      * @return bool
      */
-    private function isValidZoom($zoom): bool
+    private function isValidZoom(int $zoom): bool
     {
-        if (!is_int($zoom)) {
-            return false;
-        }
-
         return $zoom > 0;
     }
 }

@@ -38,14 +38,6 @@ class TileTest extends TestCase
         new Tile(1, 1, 0);
     }
 
-    public function testIfNonIntegerZoomValueThrowsAnException(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('zoom must be an integer value');
-
-        new Tile(1, 1, 4.5);
-    }
-
     public function testIfNegativeXThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);

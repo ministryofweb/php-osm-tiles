@@ -37,12 +37,8 @@ class Tile
      *
      * @throws InvalidArgumentException
      */
-    public function __construct($tileX, $tileY, $zoom)
+    public function __construct(int $tileX, int $tileY, int $zoom)
     {
-        if (!is_int($zoom)) {
-            throw new InvalidArgumentException('zoom must be an integer value');
-        }
-
         if ($zoom <= 0) {
             throw new InvalidArgumentException('zoom must be >= 1');
         }
