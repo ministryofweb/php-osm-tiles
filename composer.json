@@ -1,28 +1,57 @@
 {
-    "name": "ministryofweb/php-osm-tiles",
-    "description": "A library to convert map tile numbers to coordinates and vice versa.",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "MinistryOfWeb\\OsmTiles\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\MinistryOfWeb\\OsmTiles\\": "tests/"
-        }
-    },
-    "require": {
-        "php": "~7.1 || ~7.2 || ~7.3 || ~7.4"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.0",
-        "jakub-onderka/php-parallel-lint": "^1.0",
-        "jakub-onderka/php-console-highlighter": "^0.4.0",
-        "phpmd/phpmd": "^2.7",
-        "phpstan/phpstan": "^0.11.0",
-        "vimeo/psalm": "^3.0",
-        "squizlabs/php_codesniffer": "^3.0",
-        "friendsofphp/php-cs-fixer": "^2.15"
+  "name": "ministryofweb/php-osm-tiles",
+  "description": "A library to convert map tile numbers to coordinates and vice versa.",
+  "keywords": [
+    "osm",
+    "openstreetmap",
+    "maptile",
+    "tile",
+    "location",
+    "geographic",
+    "coordinate"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.3"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.13",
+    "friendsofphp/php-cs-fixer": "^2.18",
+    "jakub-onderka/php-console-highlighter": "^0.4",
+    "jakub-onderka/php-parallel-lint": "^1.0",
+    "phpmd/phpmd": "^2.9",
+    "phpunit/phpunit": "^9.5",
+    "squizlabs/php_codesniffer": "^3.5",
+    "vimeo/psalm": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MinistryOfWeb\\OsmTiles\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\MinistryOfWeb\\OsmTiles\\": "tests/"
+    }
+  },
+  "scripts": {
+    "ci": [
+      "@ci:static",
+      "@ci:dynamic"
+    ],
+    "ci:dynamic": [
+      "@ci:tests"
+    ],
+    "ci:lint": "find src tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+    "ci:phpcs": "./vendor/bin/phpcs --standard=phpcs.xml src",
+    "ci:psalm": "./vendor/bin/psalm",
+    "ci:static": [
+      "@ci:validate-composer",
+      "@ci:lint",
+      "@ci:phpcs",
+      "@ci:psalm"
+    ],
+    "ci:tests": "./vendor/bin/phpunit",
+    "ci:validate-composer": "composer validate --no-check-all --strict"
+  }
 }

@@ -5,6 +5,22 @@ file. This project adheres to [Semantic Versioning](https://semver.org/).
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/)
 principles.
 
+## [2.0.0] - 2021-03-09
+
+### Added
+
+- support for PHP 8
+
+### Removed
+
+- support for PHP 7.1
+- support for PHP 7.2
+
+### Changed
+
+- Github: renamed main branch from `master` to `main`
+- upgraded dev requirements (PHPUnit, Psalm, ...)
+
 ## [1.0.1] - 2019-10-31
 
 ### Changed

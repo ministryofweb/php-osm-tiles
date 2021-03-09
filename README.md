@@ -13,9 +13,9 @@ composer require ministryofweb/php-osm-tiles
 
 ## Compatibility
 
-The PHP OSM Tiles library requires PHP >= 7.1.
+The PHP OSM Tiles library requires PHP >= 7.3.
 
-For older PHP version you can install the PHP OSM Tiles library at version 0.1.0.
+If support for older PHP versions is needed, the PHP OSM Tiles library can be installed at version 1.0 (PHP 7.1 and PHP 7.2) or version 0.1.0 (PHP 7.0).
 
 ## Usage/Examples
 
