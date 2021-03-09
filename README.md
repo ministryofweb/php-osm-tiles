@@ -3,6 +3,8 @@
 This library helps converting OpenStreetMap (OSM) map tile numbers to
 geographical coordinates and vice versa.
 
+[![PHP OSM Tiles Tests](https://github.com/ministryofweb/php-osm-tiles/actions/workflows/php.yml/badge.svg)](https://github.com/ministryofweb/php-osm-tiles/actions/workflows/php.yml)
+
 ## Installation
 
 Using Composer, just add it to your `composer.json` by running:
