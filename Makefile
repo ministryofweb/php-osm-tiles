@@ -1,39 +1,34 @@
 PHPSTAN_LEVEL=max
 
 .PHONY: ci
-.PHONY: coding-standards
-.PHONY: composer-validate
+ci: composer-validate lint static-analysis sniff test
+
 .PHONY: lint
-.PHONY: static-analysis
-.PHONY: phpstan
-.PHONY: psalm
-.PHONY: test
-.PHONY: php-cs-fixer
-
-ci: composer-validate lint static-analysis sniff coding-standards test
-
 lint:
-	./vendor/bin/parallel-lint src
+	composer ci:lint
 
+.PHONY: static-analysis
 static-analysis: phpstan psalm
 
+.PHONY: phpstan
 phpstan:
 	./vendor/bin/phpstan analyse --level=$(PHPSTAN_LEVEL) src
 
+.PHONY: psalm
 psalm:
-	./vendor/bin/psalm
+	composer ci:psalm
 
 sniff:
-	./vendor/bin/phpcs --standard=phpcs.xml.dist src
+	composer ci:phpcs
 
-coding-standards: sniff
-	./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode
-
+.PHONY: composer-validate
 composer-validate:
-	composer validate --no-check-publish
+	composer validate
 
+.PHONY: test
 test:
-	./vendor/bin/phpunit
+	composer ci:tests
 
+.PHONY: php-cs-fixer
 php-cs-fixer:
 	./vendor/bin/php-cs-fixer fix

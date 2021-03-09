@@ -17,12 +17,12 @@
   "require-dev": {
     "ergebnis/composer-normalize": "^2.13",
     "friendsofphp/php-cs-fixer": "^2.18",
-    "jakub-onderka/php-console-highlighter": "^0.4",
-    "jakub-onderka/php-parallel-lint": "^1.0",
     "phpmd/phpmd": "^2.9",
     "phpunit/phpunit": "^9.5",
     "squizlabs/php_codesniffer": "^3.5",
-    "vimeo/psalm": "^4.0"
+    "vimeo/psalm": "^4.0",
+    "phpstan/phpstan": "^0.12.81",
+    "php-parallel-lint/php-parallel-lint": "^1.2"
   },
   "autoload": {
     "psr-4": {
@@ -42,7 +42,7 @@
     "ci:dynamic": [
       "@ci:tests"
     ],
-    "ci:lint": "find src tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+    "ci:lint": "./vendor/bin/parallel-lint src tests",
     "ci:phpcs": "./vendor/bin/phpcs --standard=phpcs.xml src",
     "ci:psalm": "./vendor/bin/psalm",
     "ci:static": [
