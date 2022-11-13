@@ -64,6 +64,11 @@ class Tile
         $this->zoom = $zoom;
     }
 
+    public static function fromLocation(LatLng $location, int $zoom): self
+    {
+        return (new Converter())->toTile($location, $zoom);
+    }
+
     /**
      * @return int
      */
