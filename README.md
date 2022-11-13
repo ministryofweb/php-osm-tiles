@@ -66,6 +66,28 @@ The code above produces the output below:
 52.50953, 13.35938
 ```
 
+## Get Bounds of a Tile
+
+It's possible to get the coordinates for the Tiles north-western, north-eastern, south-eastern and south-western nodes:
+
+```php
+<?php
+
+use MinistryOfWeb\OsmTiles\LatLng;
+use MinistryOfWeb\OsmTiles\Tile;
+use MinistryOfWeb\OsmTiles\TileBounds;
+
+$tile = Tile::fromLocation(new LatLng(52.5, 13.5));
+
+echo 'South-eastern point for tile is located at: ' . TileBounds::getSouthEast($tile)->getLat() . ', ' . TileBounds::getSouthEast($tile)->getLng() . PHP_EOL;
+```
+
+The code above produces the output below:
+
+```
+South-eastern point for tile is located at: 52.496159531097, 13.51318359375
+```
+
 ## Run Tests
 
 ``` shell script
