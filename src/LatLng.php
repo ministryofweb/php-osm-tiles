@@ -43,6 +43,11 @@ class LatLng
         $this->lng = $lng;
     }
 
+    public static function fromTile(Tile $tile): self
+    {
+        return (new Converter())->toLatLng($tile);
+    }
+
     /**
      * @return float
      */
