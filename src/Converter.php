@@ -36,6 +36,8 @@ class Converter
     }
 
     /**
+     * The resulting lat/lon pair is located at the north-west node of the tile.
+     *
      * @param Tile $tile
      *
      * @return LatLng
