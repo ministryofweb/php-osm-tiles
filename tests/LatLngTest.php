@@ -12,13 +12,13 @@ class LatLngTest extends TestCase
     {
         $latLng = new LatLng(52.5, 13.5);
 
-        self::assertSame(52.5, $latLng->getLat());
+        self::assertSame(52.5, $latLng->lat);
     }
 
     public function testIfGetYWorksAsExpected(): void
     {
         $latLng = new LatLng(52.5, 13.5);
 
-        self::assertSame(13.5, $latLng->getLng());
+        self::assertSame(13.5, $latLng->lng);
     }
 }

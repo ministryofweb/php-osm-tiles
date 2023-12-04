@@ -13,16 +13,16 @@ class TileBounds
 
     public static function getNorthEast(Tile $tile): LatLng
     {
-        return LatLng::fromTile(new Tile($tile->getX() + 1, $tile->getY(), $tile->getZoom()));
+        return LatLng::fromTile(new Tile($tile->x + 1, $tile->y, $tile->zoom));
     }
 
     public static function getSouthEast(Tile $tile): LatLng
     {
-        return LatLng::fromTile(new Tile($tile->getX() + 1, $tile->getY() + 1, $tile->getZoom()));
+        return LatLng::fromTile(new Tile($tile->x + 1, $tile->y + 1, $tile->zoom));
     }
 
     public static function getSouthWest(Tile $tile): LatLng
     {
-        return LatLng::fromTile(new Tile($tile->getX(), $tile->getY() + 1, $tile->getZoom()));
+        return LatLng::fromTile(new Tile($tile->x, $tile->y + 1, $tile->zoom));
     }
 }
