@@ -13,21 +13,21 @@ class TileTest extends TestCase
     {
         $tile = new Tile(32000, 31930, 15);
 
-        self::assertSame(32000, $tile->getX());
+        self::assertSame(32000, $tile->x);
     }
 
     public function testIfGetYWorksAsExpected(): void
     {
         $tile = new Tile(32000, 31930, 15);
 
-        self::assertSame(31930, $tile->getY());
+        self::assertSame(31930, $tile->y);
     }
 
     public function testIfGetZoomWorksAsExpected(): void
     {
         $tile = new Tile(32000, 31930, 15);
 
-        self::assertSame(15, $tile->getZoom());
+        self::assertSame(15, $tile->zoom);
     }
 
     public function testIfZeroZoomValueThrowsAnException(): void

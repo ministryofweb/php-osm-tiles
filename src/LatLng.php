@@ -12,24 +12,9 @@ use InvalidArgumentException;
 class LatLng
 {
     /**
-     * @var float
-     */
-    private $lat;
-
-    /**
-     * @var float
-     */
-    private $lng;
-
-    /**
-     * LatLng constructor.
-     *
-     * @param float $lat
-     * @param float $lng
-     *
      * @throws InvalidArgumentException
      */
-    public function __construct(float $lat, float $lng)
+    public function __construct(public readonly float $lat, public readonly float $lng)
     {
         if ($lat < -90.0 || $lat > 90.0) {
             throw new InvalidArgumentException('Latitude must be between -90.0 and 90.0');
@@ -38,9 +23,6 @@ class LatLng
         if ($lng < -180.0 || $lng > 180.0) {
             throw new InvalidArgumentException('Longitude must be between -180.0 and 180.0');
         }
-
-        $this->lat = $lat;
-        $this->lng = $lng;
     }
 
     public static function fromTile(Tile $tile): self
@@ -49,7 +31,7 @@ class LatLng
     }
 
     /**
-     * @return float
+     * @deprecated use property instead
      */
     public function getLat(): float
     {
@@ -57,7 +39,7 @@ class LatLng
     }
 
     /**
-     * @return float
+     * @deprecated use property instead
      */
     public function getLng(): float
     {

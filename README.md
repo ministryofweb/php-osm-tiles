@@ -1,6 +1,6 @@
 # PHP OSM Tiles
 
-This library helps converting OpenStreetMap (OSM) map tile numbers to
+This library helps to convert OpenStreetMap (OSM) map tile numbers to
 geographical coordinates and vice versa.
 
 [![PHP OSM Tiles Tests](https://github.com/ministryofweb/php-osm-tiles/actions/workflows/php.yml/badge.svg)](https://github.com/ministryofweb/php-osm-tiles/actions/workflows/php.yml)
@@ -15,9 +15,9 @@ composer require ministryofweb/php-osm-tiles
 
 ## Compatibility
 
-The PHP OSM Tiles library requires PHP >= 7.3.
+The PHP OSM Tiles library requires PHP >= 8.1.
 
-If support for older PHP versions is needed, the PHP OSM Tiles library can be installed at version 1.0 (PHP 7.1 and PHP 7.2) or version 0.1.0 (PHP 7.0).
+If support for older PHP versions is needed, the PHP OSM Tiles library can be installed at version 2.0 (PHP 7.3, PHP 7.4 and PHP 8.0), 1.0 (PHP 7.1 and PHP 7.2) or version 0.1.0 (PHP 7.0).
 
 ## Usage/Examples
 
@@ -35,7 +35,7 @@ $zoom      = 13;
 
 $tile = $converter->toTile($point, $zoom);
 
-printf('/tiles/%d/%d/%d.png', $zoom, $tile->getX(), $tile->getY());
+printf('/tiles/%d/%d/%d.png', $zoom, $tile->x, $tile->y);
 ```
 
 The code above produces the output below:
@@ -57,7 +57,7 @@ $tile     = new Tile(4400, 2687, 13);
 
 $point = $converter->toLatLng($tile);
 
-printf('%.5f, %.5f', $point->getLat(), $point->getLng());
+printf('%.5f, %.5f', $point->lat, $point->lat);
 ```
 
 The code above produces the output below:
@@ -79,7 +79,7 @@ use MinistryOfWeb\OsmTiles\TileBounds;
 
 $tile = Tile::fromLocation(new LatLng(52.5, 13.5));
 
-echo 'South-eastern point for tile is located at: ' . TileBounds::getSouthEast($tile)->getLat() . ', ' . TileBounds::getSouthEast($tile)->getLng() . PHP_EOL;
+echo 'South-eastern point for tile is located at: ' . TileBounds::getSouthEast($tile)->lat . ', ' . TileBounds::getSouthEast($tile)->lng . PHP_EOL;
 ```
 
 The code above produces the output below:
