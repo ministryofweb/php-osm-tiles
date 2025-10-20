@@ -5,6 +5,13 @@ file. This project adheres to [Semantic Versioning](https://semver.org/).
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/)
 principles.
 
+## [4.0.0] - 2025-10-20
+
+### Added
+
+- support for PHP 8.4
+- support for PHP 8.5
+
 ## [3.0.0] - 2023-12-04
 
 ### Added

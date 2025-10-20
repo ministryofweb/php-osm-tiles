@@ -7,7 +7,7 @@ geographical coordinates and vice versa.
 
 ## Installation
 
-Using Composer, just add it to your `composer.json` by running:
+Using Composer, add it to your `composer.json` by running:
 
 ```shell
 composer require ministryofweb/php-osm-tiles
@@ -17,7 +17,8 @@ composer require ministryofweb/php-osm-tiles
 
 The PHP OSM Tiles library requires PHP >= 8.1.
 
-If support for older PHP versions is needed, the PHP OSM Tiles library can be installed at version 2.0 (PHP 7.3, PHP 7.4 and PHP 8.0), 1.0 (PHP 7.1 and PHP 7.2) or version 0.1.0 (PHP 7.0).
+If support for older PHP versions is needed, the PHP OSM Tiles library can be installed at version 2.0
+(PHP 7.3, PHP 7.4 and PHP 8.0), 1.0 (PHP 7.1 and PHP 7.2) or version 0.1.0 (PHP 7.0).
 
 ## Usage/Examples
 
