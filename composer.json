@@ -19,7 +19,7 @@
     "friendsofphp/php-cs-fixer": "^2.18",
     "php-parallel-lint/php-parallel-lint": "^1.2",
     "phpmd/phpmd": "^2.9",
-    "phpstan/phpstan": "^0.12.81",
+    "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^10.0",
     "squizlabs/php_codesniffer": "^3.7"
   },
@@ -48,12 +48,12 @@
     ],
     "ci:lint": "./vendor/bin/parallel-lint src tests",
     "ci:phpcs": "./vendor/bin/phpcs --standard=phpcs.xml src",
-    "ci:psalm": "./vendor/bin/psalm",
+    "ci:phpstan": "./vendor/bin/phpstan",
     "ci:static": [
       "@ci:validate-composer",
       "@ci:lint",
       "@ci:phpcs",
-      "@ci:psalm"
+      "@ci:phpstan"
     ],
     "ci:tests": "./vendor/bin/phpunit",
     "ci:validate-composer": "composer validate --no-check-all --strict"
