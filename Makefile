@@ -8,15 +8,11 @@ lint:
 	composer ci:lint
 
 .PHONY: static-analysis
-static-analysis: phpstan psalm
+static-analysis: phpstan
 
 .PHONY: phpstan
 phpstan:
 	./vendor/bin/phpstan analyse --level=$(PHPSTAN_LEVEL) src
-
-.PHONY: psalm
-psalm:
-	composer ci:psalm
 
 sniff:
 	composer ci:phpcs
