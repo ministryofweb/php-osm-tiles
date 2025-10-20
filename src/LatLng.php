@@ -6,9 +6,6 @@ namespace MinistryOfWeb\OsmTiles;
 
 use InvalidArgumentException;
 
-/**
- * Class LatLng.
- */
 class LatLng
 {
     /**
